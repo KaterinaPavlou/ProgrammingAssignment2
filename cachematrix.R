@@ -8,7 +8,7 @@
 makeCacheMatrix <- function(x = matrix()) {
         i <- NULL
         
-        #reset the matrix and its inverse
+        #reset matrix and its inverse
         set <- function(y) {
                 x <<- y
                 i <<- NULL
@@ -23,7 +23,7 @@ makeCacheMatrix <- function(x = matrix()) {
         #retrieve the inverse of the matrix saved in cache
         getInverse <- function() i
         
-        #return the new object of this special matrix as a list
+        #return the new 'special matrix' object as a list
         list(set = set, get = get,
              setInverse = setInverse,
              getInverse = getInverse)
@@ -45,7 +45,7 @@ cacheSolve <- function(x, ...) {
                 return(inv)
         }
         
-        #else compute the inverse of the special matrix
+        #else compute the inverse of the 'special matrix' object
         message("adding data to cache")
         matrixToBeInverted <- x$get()
         inv <- solve(matrixToBeInverted, ...)
